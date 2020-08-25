@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <link rel="stylesheet" href="tailwind.css" />
     <title>Seeds</title>
 </head>
@@ -42,6 +42,12 @@
     </div>
     <div id="moreMetrics" class="mt-10">
         <p class="text-4xl text-blue-900 font-bold border-b-2">Metrics</p>
+        <div class="mt-4">
+            <p class="text-2xl font-bold">
+                let's breakdown what causes your bad days
+            </p>
+            <div id="donutchart" class="w-6/12 h-auto relative right-6"></div>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js "></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
