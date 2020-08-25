@@ -1,0 +1,16 @@
+{
+    "name": "seeds",
+    "version": "1.0.0",
+    "description": "Seeds is an app that helps you track your mood.",
+    "main": "index.js",
+    "scripts": {
+        "build": "postcss tailwind.css -o dist/scripts/tailwind.css"
+    },
+    "author": "Matt Milici",
+    "license": "ISC",
+    "dependencies": {
+        "autoprefixer": "^9.8.6",
+        "postcss-cli": "^7.1.1",
+        "tailwindcss": "^1.7.3"
+    }
+}
