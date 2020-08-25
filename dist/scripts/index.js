@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $("#currentDate").text(moment().format("MM/DD/YYYY"));
     $("#thumbsDown").on("click", goodDay);
     $("#thumbsUp").on("click", goodDay);
 });
