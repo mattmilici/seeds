@@ -106,7 +106,11 @@ $(document).ready(function() {
             }
             m = 0;
         }
-        $("#mostCommonGoodDay").text(`${item} ( ${mf} times ) `);
+        if (mf !== 0) {
+            $("#mostCommonGoodDay").text(
+                `Your most common reason for having a good day is ${item} ( ${mf} times ) `
+            );
+        }
     }
     //-----------------------------------Most Common Cause of a good day end-----------------------------------
     //-----------------------------------Most Common Cause of a good day start-----------------------------------
@@ -115,7 +119,7 @@ $(document).ready(function() {
             return array.status === "thumbsDown";
         });
         console.log(badDayArray);
-        let mf = 1;
+        let mf = 0;
         let m = 0;
         let item;
         for (let i = 0; i < badDayArray.length; i++) {
@@ -128,7 +132,9 @@ $(document).ready(function() {
             }
             m = 0;
         }
-        $("#mostCommonBadDay").text(`${item} ( ${mf} times ) `);
+        $("#mostCommonBadDay").text(
+            `Your most common reason for having a bad day is ${item} ( ${mf} times ) `
+        );
     }
     //-----------------------------------Most Common Cause of a good day end-----------------------------------
     //----------------------------------- Restart start-----------------------------------
