@@ -42,8 +42,6 @@ $(document).ready(function() {
         currentDayTic.status = userAnswer;
         currentDayTic.day = dayCounter;
         currentDayTic.date = currentDate;
-        console.log(currentDayTic);
-
         userArray.push(currentDayTic);
     }
 
@@ -51,17 +49,11 @@ $(document).ready(function() {
     //----------------------------------- Reason Why start-----------------------------------
     function reasonWhy() {
         let currentDayTic = userArray[dayCounter - 1];
-        // console.log(currentDayTic);
-
         const userReason = $(this).attr("id");
-        // console.log(userReason);
         currentDayTic.reason = userReason;
-        // console.log(currentDayTic);
         $("#stats").show();
         $("#reasons").hide();
         $("#headers").hide();
-
-        console.log(userArray);
 
         let goodDayCounter = 0;
         for (let i = 0; i < userArray.length; i++) {
@@ -71,9 +63,10 @@ $(document).ready(function() {
             }
             $("#goodDayCounter").text(goodDayCounter);
             PercentageOfGoodDays();
+            statusArray();
         }
+        // console.log(userArray);
     }
-
     //-----------------------------------Reason Why end-----------------------------------
     //-----------------------------------Percent of good days start-----------------------------------
     function PercentageOfGoodDays() {
@@ -82,9 +75,17 @@ $(document).ready(function() {
         $("#goodDayPercent").text(percentCalc);
     }
     //-----------------------------------Percent of good days end-----------------------------------
-
+    //-----------------------------------Most Common Cause of a good day start-----------------------------------
+    function statusArray() {
+        var goodDayArray = userArray.filter(function(array) {
+            return array.status === "thumbsUp";
+        });
+        var badDayArray = userArray.filter(function(array) {
+            return array.status === "thumbsDown";
+        });
+    }
+    //-----------------------------------Most Common Cause of a good day end-----------------------------------
     //----------------------------------- Restart start-----------------------------------
-
     $("#replay").on("click", restart);
 
     function restart() {
