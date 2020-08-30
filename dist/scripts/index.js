@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var userArray = [];
+    var userArray = JSON.parse(localStorage.getItem("userArray")) || [];
     let dayCounter = 0;
 
     //constructor for user inputs based off how their day was
@@ -53,7 +53,7 @@ $(document).ready(function() {
         currentDayTic.status = userAnswer;
         currentDayTic.day = dayCounter;
         currentDayTic.date = currentDate;
-        currentDayTic.reason = "";
+
         userArray.unshift(currentDayTic);
     }
 
@@ -62,6 +62,9 @@ $(document).ready(function() {
     function reasonWhy() {
         const userReason = $(this).attr("id");
         userArray[0].reason = userReason;
+        console.log(userArray);
+        localStorage.setItem("userArray", JSON.stringify(userArray));
+        console.log(userArray);
         $("#stats").show();
         $("#reasons").hide();
         $("#questionSection").hide();
