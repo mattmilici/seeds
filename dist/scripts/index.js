@@ -52,15 +52,15 @@ $(document).ready(function() {
         currentDayTic.status = userAnswer;
         currentDayTic.day = dayCounter;
         currentDayTic.date = currentDate;
+        currentDayTic.reason = "";
         userArray.unshift(currentDayTic);
     }
 
     //-----------------------------------goodDay end-----------------------------------
     //----------------------------------- Reason Why start-----------------------------------
     function reasonWhy() {
-        let currentDayTic = userArray[dayCounter - 1];
         const userReason = $(this).attr("id");
-        currentDayTic.reason = userReason;
+        userArray[0].reason = userReason;
         $("#stats").show();
         $("#reasons").hide();
         $("#questionSection").hide();
