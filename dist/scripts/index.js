@@ -8,7 +8,8 @@ $(document).ready(function() {
         percentOfGoodDays: "",
         currentStreak: "",
         mostCommonBadDayReason: "",
-        mostCommonGoodDayReaso: "",
+        mostCommonGoodDayReason: "",
+        MostCommonReason: "",
     };
 
     //constructor for user inputs based off how their day was
@@ -76,9 +77,11 @@ $(document).ready(function() {
             statusArrayGood();
             statusArrayBad();
             currentStreakLength();
+            mostCommonCause();
         }
     }
     //-----------------------------------Reason Why end-----------------------------------
+
     //-----------------------------------Percent of good days start-----------------------------------
     function PercentageOfGoodDays() {
         let numerator = parseInt($("#goodDayCounter").text());
@@ -87,6 +90,28 @@ $(document).ready(function() {
         $("#goodDayPercent").text(statsobject.percentOfGoodDays);
     }
     //-----------------------------------Percent of good days end-----------------------------------
+    //-----------------------------------Most Common Cause start-----------------------------------
+    function mostCommonCause() {
+        let mf = 0;
+        let m = 0;
+        let item;
+        for (let i = 0; i < userArray.length; i++) {
+            for (let j = i; j < userArray.length; j++) {
+                if (userArray[i].reason == userArray[j].reason) m++;
+                if (mf < m) {
+                    mf = m;
+                    item = userArray[i].reason;
+                }
+            }
+            m = 0;
+        }
+        if (mf !== 0) {
+            $("#mostCommonReason").text(
+                `You're most used Reason is ${item} (${mf} times)`
+            );
+        }
+    }
+    //-----------------------------------Most Common Cause end-----------------------------------
     //-----------------------------------Most Common Cause of a good day start-----------------------------------
     function statusArrayGood() {
         var goodDayArray = userArray.filter(function(array) {
