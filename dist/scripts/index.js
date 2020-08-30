@@ -89,8 +89,9 @@ $(document).ready(function() {
     function PercentageOfGoodDays() {
         let numerator = parseInt($("#goodDayCounter").text());
         let percentCalc = Math.floor((numerator / userArray.length) * 100);
-        statsobject.percentOfGoodDays = percentCalc;
+        statsobject.percentOfGoodDays = `${percentCalc}%`;
         $("#goodDayPercent").text(statsobject.percentOfGoodDays);
+        $("#circle-chart").attr("stroke-dasharray", `${percentCalc},100`);
     }
     //-----------------------------------Percent of good days end-----------------------------------
     //-----------------------------------Most Common Cause start-----------------------------------

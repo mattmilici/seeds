@@ -73,15 +73,6 @@
                 <div class="mb-2">
                     <div class="m-auto rounded-full h-24 w-24 md:h-40 md:w-40 bg-blue-900 mb-4 shadow-2xl flex jusitfy-center align-center">
                         <p class="text-white text-2xl font-bold text-center m-auto">
-                            <span id="goodDayPercent">30 </span
-								><span class="text-sm font-normal"> %</span>
-                        </p>
-                    </div>
-                    <p class="text-center text-xs">Percent good</p>
-                </div>
-                <div class="mb-2">
-                    <div class="m-auto rounded-full h-24 w-24 md:h-40 md:w-40 bg-blue-900 mb-4 shadow-2xl flex jusitfy-center align-center">
-                        <p class="text-white text-2xl font-bold text-center m-auto">
                             <span id="streakCounter"> </span
 								><span class="text-sm font-normal"> days</span>
                         </p>
@@ -108,15 +99,68 @@
                     </p>
                 </div>
 
+                <div class="flex justify-center m-auto flex-nowrap block">
+                    <section>
+                        <!-- <h2>Positive chart value</h2> -->
+                        <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="circle-chart__background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                        <circle id="circle-chart" class="circle-chart__circle" stroke="#00acc1" stroke-width="2" stroke-dasharray="30,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                        <g class="circle-chart__info">
+                          <text id="goodDayPercent" class="circle-chart__percent" x="16.91549431" y="15.5" alignment-baseline="central" text-anchor="middle" font-size="8"></text>
+                          <text class="circle-chart__subline" x="16.91549431" y="20.5" alignment-baseline="central" text-anchor="middle" font-size="2">percentage of good days</text>
+                        </g>
+                      </svg>
+                    </section>
+                </div>
                 <button id="replay">Add Another Day</button>
             </div>
         </div>
-    </div>
-    <!-- statsPage end -->
+        <!-- statsPage end -->
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js "></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js "></script>
-    <script src="index.js "></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js "></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js "></script>
+        <script src="index.js "></script>
 </body>
+
+<style>
+    .circle-chart__circle {
+        animation: circle-chart-fill 2s reverse;
+        /* 1 */
+        transform: rotate(-90deg);
+        /* 2, 3 */
+        transform-origin: center;
+        /* 4 */
+    }
+    
+    .circle-chart__circle--negative {
+        transform: rotate(-90deg) scale(1, -1);
+        /* 1, 2, 3 */
+    }
+    
+    .circle-chart__info {
+        animation: circle-chart-appear 2s forwards;
+        opacity: 0;
+        transform: translateY(0.3em);
+    }
+    
+    @keyframes circle-chart-fill {
+        to {
+            stroke-dasharray: 0 100;
+        }
+    }
+    
+    @keyframes circle-chart-appear {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @media (min-width: 31em) {
+        .grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>
 
 </html>
