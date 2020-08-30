@@ -109,9 +109,7 @@ $(document).ready(function() {
             m = 0;
         }
         if (mf !== 0) {
-            $("#mostCommonReason").text(
-                `Most common Reason is ${item} (${mf} times)`
-            );
+            $("#mostCommonReason").text(` ${item} (${mf} times)`);
         }
     }
     //-----------------------------------Most Common Cause end-----------------------------------
@@ -135,9 +133,7 @@ $(document).ready(function() {
             m = 0;
         }
         if (mf !== 0) {
-            $("#mostCommonGoodDay").text(
-                `Most common cause for a good day? ${item} (${mf} times)`
-            );
+            $("#mostCommonGoodDay").text(` ${item} (${mf} times)`);
         }
     }
     //-----------------------------------Most Common Cause of a good day end-----------------------------------
@@ -160,9 +156,7 @@ $(document).ready(function() {
             m = 0;
         }
         if (mf !== 0) {
-            $("#mostCommonBadDay").text(
-                `Most common cause of a bad day? ${item} (${mf} times)`
-            );
+            $("#mostCommonBadDay").text(` ${item} (${mf} times)`);
         }
     }
     //-----------------------------------Most Common Cause of a good day end-----------------------------------
