@@ -70,16 +70,14 @@ $(document).ready(function() {
                 goodDayCounter++;
             }
             $("#goodDayCounter").text(goodDayCounter);
-            goodDayPercentage();
+            PercentageOfGoodDays();
         }
     }
 
     //-----------------------------------Reason Why end-----------------------------------
     //-----------------------------------Percent of good days start-----------------------------------
-
-    function goodDayPercentage() {
+    function PercentageOfGoodDays() {
         let numerator = parseInt($("#goodDayCounter").text());
-        console.log(typeof numerator);
         let percentCalc = Math.floor((numerator / userArray.length) * 100);
         $("#goodDayPercent").text(percentCalc);
     }
