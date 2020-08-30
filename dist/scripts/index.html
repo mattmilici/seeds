@@ -10,50 +10,54 @@
     <title>Seeds</title>
 </head>
 
-<body class="flex h-screen bg-gradient-to-l from-blue-400 via-blue-350 to-blue-300">
-    <div class="m-auto text-center">
-        <div id="headers">
-            <p id="currentDate" class="text-blue-900 text-5xl font-bold border-b-2 mb-6"></p>
-            <h1 id="hey-there" class="text-blue-900 text-xl font-bold">
-                hey there!
-            </h1>
+<body class="bg-gradient-to-l from-blue-400 via-blue-350 to-blue-300">
+    <div id="questionSection" class="flex h-screen">
+        <div class="m-auto text-center">
+            <div id="headers">
+                <p id="currentDate" class="text-blue-900 text-5xl font-bold border-b-2 mb-6"></p>
+                <h1 id="hey-there" class="text-blue-900 text-xl font-bold">
+                    hey there!
+                </h1>
 
-            <h1 id="message" class="text-blue-900 text-3xl font-bold">
-                How was your day?
-            </h1>
-        </div>
-        <div class="mt-8 flex justify-around">
-            <button id="thumbsDown" class="mr-8">
-					<i
-						class="text-blue-900 hover:blue-800 fas fa-thumbs-down fa-6x fa-flip-horizontal"
-					></i>
-				</button>
-            <button id="thumbsUp">
-					<i
-						class="text-blue-900 hover:blue-800 fas fa-thumbs-up fa-6x rounded-full"
-					></i>
-				</button>
-        </div>
-        <div id="reasons" class="hidden w-3/4 m-auto">
-            <div class="m-auto">
-                <button id="work" class="reasonWhy bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-full my-4 text-center w-full shadoe-outline shadow-2xl">
-						<i class="fas fa-briefcase mr-2"></i>work
+                <h1 id="message" class="text-blue-900 text-3xl font-bold">
+                    How was your day?
+                </h1>
+            </div>
+            <div class="mt-8 flex justify-around">
+                <button id="thumbsDown" class="mr-8">
+						<i
+							class="text-blue-900 hover:blue-800 fas fa-thumbs-down fa-6x fa-flip-horizontal"
+						></i>
 					</button>
-                <button id="family" class="reasonWhy bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-full my-4 text-center w-full shadoe-outline shadow-2xl">
-						<i class="fas fa-users mr-2"></i>family
-					</button>
-                <button id="sleep" class="reasonWhy bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-full my-4 text-center w-full shadoe-outline shadow-2xl">
-						<i class="fas fa-bed mr-2"></i>sleep
-					</button>
-                <button id="diet" class="reasonWhy bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-full my-4 text-center w-full shadoe-outline shadow-2xl">
-						<i class="fas fa-utensils mr-2"></i>diet
-					</button>
-                <button id="notSure" class="reasonWhy bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-full my-4 text-center w-full shadoe-outline shadow-2xl">
-						<i class="fas fa-question mr-2"></i>not sure
+                <button id="thumbsUp">
+						<i
+							class="text-blue-900 hover:blue-800 fas fa-thumbs-up fa-6x rounded-full"
+						></i>
 					</button>
             </div>
+            <div id="reasons" class="hidden w-3/4 m-auto">
+                <div class="m-auto">
+                    <button id="work" class="reasonWhy bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-full my-4 text-center w-full shadoe-outline shadow-2xl">
+							<i class="fas fa-briefcase mr-2"></i>work
+						</button>
+                    <button id="family" class="reasonWhy bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-full my-4 text-center w-full shadoe-outline shadow-2xl">
+							<i class="fas fa-users mr-2"></i>family
+						</button>
+                    <button id="sleep" class="reasonWhy bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-full my-4 text-center w-full shadoe-outline shadow-2xl">
+							<i class="fas fa-bed mr-2"></i>sleep
+						</button>
+                    <button id="diet" class="reasonWhy bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-full my-4 text-center w-full shadoe-outline shadow-2xl">
+							<i class="fas fa-utensils mr-2"></i>diet
+						</button>
+                    <button id="notSure" class="reasonWhy bg-blue-900 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-full my-4 text-center w-full shadoe-outline shadow-2xl">
+							<i class="fas fa-question mr-2"></i>not sure
+						</button>
+                </div>
+            </div>
         </div>
-        <!-- statsPage begin-->
+    </div>
+    <!-- statsPage begin-->
+    <div class="my-10">
         <div id="stats" class="hidden">
             <p class="text-blue-900 text-center md:text-left text-4xl font-bold mt-16">
                 Statistics
@@ -97,8 +101,9 @@
                 <button id="replay">Add Another Day</button>
             </div>
         </div>
-        <!-- statsPage end -->
     </div>
+    <!-- statsPage end -->
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js "></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="index.js"></script>

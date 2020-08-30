@@ -1,6 +1,7 @@
 $(document).ready(function() {
     var userArray = [];
     let dayCounter = 0;
+
     //constructor for user inputs based off how their day was
     function dailyData(day, date, status, reason) {
         this.day = day;
@@ -11,7 +12,7 @@ $(document).ready(function() {
 
     //sets the current date on screen
     const currentDate = moment().format("MM/DD/YYYY");
-    $("#headers").show();
+    $("#questionSection").show();
     $("#reasons").hide();
     $("#stats").hide();
 
@@ -53,7 +54,7 @@ $(document).ready(function() {
         currentDayTic.reason = userReason;
         $("#stats").show();
         $("#reasons").hide();
-        $("#headers").hide();
+        $("#questionSection").hide();
 
         let goodDayCounter = 0;
         for (let i = 0; i < userArray.length; i++) {
@@ -92,7 +93,7 @@ $(document).ready(function() {
         $("#stats").hide();
         $("#thumbsUp").show();
         $("#thumbsDown").show();
-        $("#headers").show();
+        $("#questionSection").show();
     }
     //----------------------------------- Restart end-----------------------------------
 });
