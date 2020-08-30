@@ -190,6 +190,8 @@ $(document).ready(function() {
         $("#thumbsUp").show();
         $("#thumbsDown").show();
         $("#questionSection").show();
+        $("#hey-there").text("Hey there!");
+        $("#message").text("How was your day?");
     }
     //----------------------------------- Restart end-----------------------------------
 });
