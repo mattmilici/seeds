@@ -11,6 +11,9 @@ $(document).ready(function() {
 
     //sets the current date on screen
     const currentDate = moment().format("MM/DD/YYYY");
+    $("#headers").show();
+    $("#reasons").hide();
+    $("#stats").hide();
 
     //functions that navigate thru the html and hide/show divs
     $("#currentDate").text(currentDate);
@@ -23,8 +26,7 @@ $(document).ready(function() {
     function goodDay() {
         $("#thumbsUp").hide();
         $("#thumbsDown").hide();
-        $("#reasons").addClass("show");
-        $("#reasons").removeClass("hidden");
+        $("#reasons").show();
 
         const userAnswer = $(this).attr("id");
         dayCounter++;
@@ -49,21 +51,49 @@ $(document).ready(function() {
     //----------------------------------- Reason Why start-----------------------------------
     function reasonWhy() {
         let currentDayTic = userArray[dayCounter - 1];
-        console.log(currentDayTic);
+        // console.log(currentDayTic);
 
         const userReason = $(this).attr("id");
-        console.log(userReason);
+        // console.log(userReason);
         currentDayTic.reason = userReason;
-        console.log(currentDayTic);
-        $("#stats").addClass("show");
-        $("#stats").removeClass("hidden");
-        $("#reasons").removeClass("show");
-        $("#reasons").addClass("hidden");
-        $("#headers").addClass("hidden");
+        // console.log(currentDayTic);
+        $("#stats").show();
+        $("#reasons").hide();
+        $("#headers").hide();
+
+        console.log(userArray);
+
+        let goodDayCounter = 0;
+        for (let i = 0; i < userArray.length; i++) {
+            if (userArray[i].status === "thumbsUp") {
+                console.log(userArray[i].status);
+                goodDayCounter++;
+            }
+            $("#goodDayCounter").text(goodDayCounter);
+            goodDayPercentage();
+        }
     }
 
     //-----------------------------------Reason Why end-----------------------------------
+    //-----------------------------------Percent of good days start-----------------------------------
+
+    function goodDayPercentage() {
+        let numerator = parseInt($("#goodDayCounter").text());
+        console.log(typeof numerator);
+        let percentCalc = Math.floor((numerator / userArray.length) * 100);
+        $("#goodDayPercent").text(percentCalc);
+    }
+    //-----------------------------------Percent of good days end-----------------------------------
 
     //----------------------------------- Restart start-----------------------------------
+
+    $("#replay").on("click", restart);
+
+    function restart() {
+        $("#stats").hide();
+        $("#thumbsUp").show();
+        $("#thumbsDown").show();
+        $("#headers").show();
+    }
     //----------------------------------- Restart end-----------------------------------
 });
