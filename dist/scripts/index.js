@@ -3,6 +3,14 @@ $(document).ready(function() {
     let dayCounter = 0;
 
     //constructor for user inputs based off how their day was
+    const statsobject = {
+        totalGoodDays: "",
+        percentOfGoodDays: "",
+        mostCommonBadDayReason: "",
+        mostCommonGoodDayReaso: "",
+    };
+
+    //constructor for user inputs based off how their day was
     function dailyData(day, date, status, reason) {
         this.day = day;
         this.date = date;
@@ -62,7 +70,8 @@ $(document).ready(function() {
                 console.log(userArray[i].status);
                 goodDayCounter++;
             }
-            $("#goodDayCounter").text(goodDayCounter);
+            statsobject.totalGoodDays = goodDayCounter;
+            $("#goodDayCounter").text(statsobject.totalGoodDays);
             PercentageOfGoodDays();
             statusArray();
         }
@@ -73,7 +82,8 @@ $(document).ready(function() {
     function PercentageOfGoodDays() {
         let numerator = parseInt($("#goodDayCounter").text());
         let percentCalc = Math.floor((numerator / userArray.length) * 100);
-        $("#goodDayPercent").text(percentCalc);
+        statsobject.percentOfGoodDays = percentCalc;
+        $("#goodDayPercent").text(statsobject.percentOfGoodDays);
     }
     //-----------------------------------Percent of good days end-----------------------------------
     //-----------------------------------Most Common Cause of a good day start-----------------------------------
@@ -84,6 +94,14 @@ $(document).ready(function() {
         var badDayArray = userArray.filter(function(array) {
             return array.status === "thumbsDown";
         });
+        console.log(goodDayArray);
+
+        const mostCommonGoodDayReason = function() {
+            for (let i = 0; i < goodDayArray.length; i++) {
+                let goodDayReasons = [];
+                goodDayReasons.push(goodDayArray[i].reason);
+            }
+        };
     }
     //-----------------------------------Most Common Cause of a good day end-----------------------------------
     //----------------------------------- Restart start-----------------------------------
