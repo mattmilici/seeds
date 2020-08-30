@@ -73,7 +73,8 @@ $(document).ready(function() {
             statsobject.totalGoodDays = goodDayCounter;
             $("#goodDayCounter").text(statsobject.totalGoodDays);
             PercentageOfGoodDays();
-            statusArray();
+            statusArrayGood();
+            statusArrayBad();
         }
         // console.log(userArray);
     }
@@ -87,21 +88,47 @@ $(document).ready(function() {
     }
     //-----------------------------------Percent of good days end-----------------------------------
     //-----------------------------------Most Common Cause of a good day start-----------------------------------
-    function statusArray() {
+    function statusArrayGood() {
         var goodDayArray = userArray.filter(function(array) {
             return array.status === "thumbsUp";
         });
+        console.log(goodDayArray);
+        let mf = 0;
+        let m = 0;
+        let item;
+        for (let i = 0; i < goodDayArray.length; i++) {
+            for (let j = i; j < goodDayArray.length; j++) {
+                if (goodDayArray[i].reason == goodDayArray[j].reason) m++;
+                if (mf < m) {
+                    mf = m;
+                    item = goodDayArray[i].reason;
+                }
+            }
+            m = 0;
+        }
+        $("#mostCommonGoodDay").text(`${item} ( ${mf} times ) `);
+    }
+    //-----------------------------------Most Common Cause of a good day end-----------------------------------
+    //-----------------------------------Most Common Cause of a good day start-----------------------------------
+    function statusArrayBad() {
         var badDayArray = userArray.filter(function(array) {
             return array.status === "thumbsDown";
         });
-        console.log(goodDayArray);
-
-        const mostCommonGoodDayReason = function() {
-            for (let i = 0; i < goodDayArray.length; i++) {
-                let goodDayReasons = [];
-                goodDayReasons.push(goodDayArray[i].reason);
+        console.log(badDayArray);
+        let mf = 1;
+        let m = 0;
+        let item;
+        for (let i = 0; i < badDayArray.length; i++) {
+            for (let j = i; j < badDayArray.length; j++) {
+                if (badDayArray[i].reason == badDayArray[j].reason) m++;
+                if (mf < m) {
+                    mf = m;
+                    item = badDayArray[i].reason;
+                }
             }
-        };
+            m = 0;
+        }
+        $("#mostCommonBadDay").text(`${item} ( ${mf} times ) `);
     }
     //-----------------------------------Most Common Cause of a good day end-----------------------------------
     //----------------------------------- Restart start-----------------------------------
