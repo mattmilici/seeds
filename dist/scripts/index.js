@@ -110,7 +110,7 @@ $(document).ready(function() {
         }
         if (mf !== 0) {
             $("#mostCommonReason").text(
-                `You're most used Reason is ${item} (${mf} times)`
+                `Most common Reason is ${item} (${mf} times)`
             );
         }
     }
@@ -136,7 +136,7 @@ $(document).ready(function() {
         }
         if (mf !== 0) {
             $("#mostCommonGoodDay").text(
-                `Most common reason for having a good day is ${item} (${mf} times)`
+                `Most common cause for a good day? ${item} (${mf} times)`
             );
         }
     }
@@ -161,7 +161,7 @@ $(document).ready(function() {
         }
         if (mf !== 0) {
             $("#mostCommonBadDay").text(
-                `Most common reason for having a bad day is ${item} (${mf} times) `
+                `Most common cause of a bad day? ${item} (${mf} times)`
             );
         }
     }
