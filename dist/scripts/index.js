@@ -6,6 +6,7 @@ $(document).ready(function() {
     const statsobject = {
         totalGoodDays: "",
         percentOfGoodDays: "",
+        currentStreak: "",
         mostCommonBadDayReason: "",
         mostCommonGoodDayReaso: "",
     };
@@ -51,7 +52,7 @@ $(document).ready(function() {
         currentDayTic.status = userAnswer;
         currentDayTic.day = dayCounter;
         currentDayTic.date = currentDate;
-        userArray.push(currentDayTic);
+        userArray.unshift(currentDayTic);
     }
 
     //-----------------------------------goodDay end-----------------------------------
@@ -67,7 +68,6 @@ $(document).ready(function() {
         let goodDayCounter = 0;
         for (let i = 0; i < userArray.length; i++) {
             if (userArray[i].status === "thumbsUp") {
-                console.log(userArray[i].status);
                 goodDayCounter++;
             }
             statsobject.totalGoodDays = goodDayCounter;
@@ -75,8 +75,8 @@ $(document).ready(function() {
             PercentageOfGoodDays();
             statusArrayGood();
             statusArrayBad();
+            currentStreakLength();
         }
-        // console.log(userArray);
     }
     //-----------------------------------Reason Why end-----------------------------------
     //-----------------------------------Percent of good days start-----------------------------------
@@ -92,7 +92,7 @@ $(document).ready(function() {
         var goodDayArray = userArray.filter(function(array) {
             return array.status === "thumbsUp";
         });
-        console.log(goodDayArray);
+
         let mf = 0;
         let m = 0;
         let item;
@@ -108,7 +108,7 @@ $(document).ready(function() {
         }
         if (mf !== 0) {
             $("#mostCommonGoodDay").text(
-                `Your most common reason for having a good day is ${item} ( ${mf} times ) `
+                `Most common reason for having a good day is ${item} (${mf} times)`
             );
         }
     }
@@ -118,7 +118,6 @@ $(document).ready(function() {
         var badDayArray = userArray.filter(function(array) {
             return array.status === "thumbsDown";
         });
-        console.log(badDayArray);
         let mf = 0;
         let m = 0;
         let item;
@@ -132,12 +131,29 @@ $(document).ready(function() {
             }
             m = 0;
         }
-        $("#mostCommonBadDay").text(
-            `Your most common reason for having a bad day is ${item} ( ${mf} times ) `
-        );
+        if (mf !== 0) {
+            $("#mostCommonBadDay").text(
+                `Most common reason for having a bad day is ${item} (${mf} times) `
+            );
+        }
     }
     //-----------------------------------Most Common Cause of a good day end-----------------------------------
-    //----------------------------------- Restart start-----------------------------------
+
+    //-----------------------------------Current Streak start----------------------------------
+    function currentStreakLength() {
+        let currentStreak = 0;
+        let result = true;
+        for (let i = 0; i < userArray.length; i++) {
+            if (userArray[i].status === "thumbsUp") {
+                currentStreak++;
+            } else {
+                result = false;
+                break;
+            }
+        }
+        $("#streakCounter").text(currentStreak);
+    }
+    //-----------------------------------Current Streak end-----------------------------------
     $("#replay").on("click", restart);
 
     function restart() {
