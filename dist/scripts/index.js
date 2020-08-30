@@ -91,7 +91,7 @@ $(document).ready(function() {
         let percentCalc = Math.floor((numerator / userArray.length) * 100);
         statsobject.percentOfGoodDays = `${percentCalc}%`;
         $("#goodDayPercent").text(statsobject.percentOfGoodDays);
-        $("#circle-chart").attr("stroke-dasharray", `${percentCalc},100`);
+        $("#percentGoodCalc").attr("stroke-dasharray", `${percentCalc},100`);
     }
     //-----------------------------------Percent of good days end-----------------------------------
     //-----------------------------------Most Common Cause start-----------------------------------
@@ -112,6 +112,12 @@ $(document).ready(function() {
         if (mf !== 0) {
             $("#mostCommonReason").text(` ${item} (${mf} times)`);
         }
+        let length = userArray.length;
+        let count = Math.floor((mf / userArray.length) * 100);
+
+        $("#mostCommonAnswerPercentage").attr("stroke-dasharray", `${count},100`);
+        $("#mostCommonAnswerPercentage2").text(`${count}%`);
+        $("#mostCommonAnswerPercentage3").text(`${item} (${mf} times)`);
     }
     //-----------------------------------Most Common Cause end-----------------------------------
     //-----------------------------------Most Common Cause of a good day start-----------------------------------

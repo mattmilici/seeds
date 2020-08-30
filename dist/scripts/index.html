@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <link rel="stylesheet" href="tailwind.css" />
+    <link rel="stylesheet" href="index.css">
     <title>Seeds</title>
 </head>
 
@@ -81,10 +82,10 @@
                 </div>
             </div>
             <div id="moreMetrics" class="mt-6">
-                <p class="text-2xl text-blue-900 font-bold border-b-2 text-center">
+                <p class="text-2xl text-blue-900 font-bold border-b-2 text-center mb-6">
                     KPIs
                 </p>
-                <div class="mt-4">
+                <!-- <div class="mt-4">
                     <p class="text-mdtext-blue-900 mb-2">
                         <span>Most common answer:</span
 							><span id="mostCommonReason" class="font-bold"></span>
@@ -97,14 +98,14 @@
                         <span>Most common answer:</span
 							><span id="mostCommonBadDay" class="font-bold"></span>
                     </p>
-                </div>
+                </div> -->
 
-                <div class="flex justify-center m-auto flex-nowrap block">
-                    <section>
-                        <!-- <h2>Positive chart value</h2> -->
+                <div class="flex justify-center m-auto flex-nowrap block mb-6">
+                    <section class="block">
+                        <h2 class="text-center text-xl font-bold border-b-2 mb-2">Good Day Percentage</h2>
                         <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                        <circle class="circle-chart__background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                        <circle id="circle-chart" class="circle-chart__circle" stroke="#00acc1" stroke-width="2" stroke-dasharray="30,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                        <circle class="circle-chart__background" stroke="#fff" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                        <circle id="percentGoodCalc" class="circle-chart__circle" stroke="#2a4365" stroke-width="2" stroke-dasharray="30,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
                         <g class="circle-chart__info">
                           <text id="goodDayPercent" class="circle-chart__percent" x="16.91549431" y="15.5" alignment-baseline="central" text-anchor="middle" font-size="8"></text>
                           <text class="circle-chart__subline" x="16.91549431" y="20.5" alignment-baseline="central" text-anchor="middle" font-size="2">percentage of good days</text>
@@ -112,7 +113,20 @@
                       </svg>
                     </section>
                 </div>
-                <button id="replay">Add Another Day</button>
+                <div class="flex justify-center m-auto flex-nowrap block mb-6">
+                    <section class="block">
+                        <h2 class="text-center text-xl font-bold border-b-2 mb-2">Most Common Answer</h2>
+                        <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="circle-chart__background" stroke="#fff" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                        <circle id="mostCommonAnswerPercentage" class="circle-chart__circle" stroke="#2a4365" stroke-width="2" stroke-dasharray="30,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                        <g class="circle-chart__info">
+                          <text id="mostCommonAnswerPercentage2" class="circle-chart__percent" x="16.91549431" y="15.5" alignment-baseline="central" text-anchor="middle" font-size="8"></text>
+                          <text id="mostCommonAnswerPercentage3" class="circle-chart__subline" x="16.91549431" y="20.5" alignment-baseline="central" text-anchor="middle" font-size="2"></text>
+                        </g>
+                      </svg>
+                    </section>
+                </div>
+                <button id="replay" class="text-center m-auto">Add Another Day</button>
             </div>
         </div>
         <!-- statsPage end -->
@@ -122,45 +136,5 @@
         <script src="index.js "></script>
 </body>
 
-<style>
-    .circle-chart__circle {
-        animation: circle-chart-fill 2s reverse;
-        /* 1 */
-        transform: rotate(-90deg);
-        /* 2, 3 */
-        transform-origin: center;
-        /* 4 */
-    }
-    
-    .circle-chart__circle--negative {
-        transform: rotate(-90deg) scale(1, -1);
-        /* 1, 2, 3 */
-    }
-    
-    .circle-chart__info {
-        animation: circle-chart-appear 2s forwards;
-        opacity: 0;
-        transform: translateY(0.3em);
-    }
-    
-    @keyframes circle-chart-fill {
-        to {
-            stroke-dasharray: 0 100;
-        }
-    }
-    
-    @keyframes circle-chart-appear {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    @media (min-width: 31em) {
-        .grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-</style>
 
 </html>
