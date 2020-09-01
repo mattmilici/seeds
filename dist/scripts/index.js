@@ -1,6 +1,7 @@
 $(document).ready(function() {
     var userArray = JSON.parse(localStorage.getItem("userArray")) || [];
     let dayCounter = 0;
+    let check = false;
 
     //constructor for user inputs based off how their day was
     const statsobject = {
@@ -25,6 +26,7 @@ $(document).ready(function() {
     $("#questionSection").hide();
     $("#reasons").hide();
     $("#stats").show();
+    $("#moreMetrics").hide();
     $("#streakCounter").text(currentStreakLength(userArray));
 
     //functions that navigate thru the html and hide/show divs
@@ -32,6 +34,20 @@ $(document).ready(function() {
     $("#thumbsDown").on("click", goodDay);
     $("#thumbsUp").on("click", goodDay);
     $(".reasonWhy").on("click", reasonWhy);
+    $("#statsButton").on("click", showMetrics);
+
+    function showMetrics() {
+        console.log("wprlo");
+        if (check === true) {
+            $("#moreMetrics").hide();
+            $("#stats").show();
+            check = false;
+        } else {
+            $("#moreMetrics").show();
+            $("#stats").hide();
+            check = true;
+        }
+    }
 
     //-----------------------------------goodDay start-----------------------------------
     //this is what determines the message and options the user sees after determining if it was a good or bad day
@@ -88,7 +104,7 @@ $(document).ready(function() {
 
     //-----------------------------------Percent of good days start-----------------------------------
     function PercentageOfGoodDays() {
-        let numerator = parseInt($("#goodDayCounter").text());
+        let numerator = parseInt(statsobject.totalGoodDays);
         let percentCalc = Math.floor((numerator / userArray.length) * 100);
         statsobject.percentOfGoodDays = `${percentCalc}%`;
         $("#goodDayPercent").text(statsobject.percentOfGoodDays);

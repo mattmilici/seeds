@@ -58,150 +58,145 @@
         </div>
     </div>
     <!-- statsPage begin-->
-    <div class="mt-4">
-        <div class="">
-            <div id="stats" class="h-screen">
-                <p class="text-blue-900 text-center text-3xl font-bold">
-                    Good Day Streak
-                </p>
-                <div class="flex flex-wrap justify-around mt-8">
-                    <div class="mb-2">
-                        <div class="m-auto rounded-full h-64 w-64 bg-blue-900 mb-4 shadow-2xl flex jusitfy-center align-center">
-                            <div class="text-white text-center m-auto">
-                                <p class="text-6xl font-bold text-center">
-                                    <span id="streakCounter">0</span
-										><span class="text-lg font-normal"> days</span>
-                                </p>
-                                <p class="text-center text-md">Current Streak</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex justify-center mt-24 mb-0 pt-12 rounded-t-lg">
-                    <div class="text-center mr-24">
-                        <button id="stats" class="rounded-full h-16 w-16 bg-blue-900 mb-2">
-									<i class="fas fa-chart-line fa-2x text-white"></i>
-								</button>
-                        <p>Trends</p>
-                    </div>
-                    <div class="text-center">
-                        <button id="replay" class="rounded-full h-16 w-16 bg-blue-900 mb-2">
-									<i class="fas fa-plus fa-2x text-white"></i>
-								</button>
-                        <p>Entry</p>
+    <div id="stats" class="">
+        <p class="text-blue-900 text-center text-3xl font-bold">
+            Good Day Streak
+        </p>
+        <div class="flex flex-wrap justify-around mt-8">
+            <div class="mb-2">
+                <div class="m-auto rounded-full h-64 w-64 bg-blue-900 mb-4 shadow-2xl flex jusitfy-center align-center">
+                    <div class="text-white text-center m-auto">
+                        <p class="text-6xl font-bold text-center">
+                            <span id="streakCounter">0</span
+								><span class="text-lg font-normal"> days</span>
+                        </p>
+                        <p class="text-center text-md">Current Streak</p>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- <div id="moreMetrics" class="mt-6">
-                <p class="text-2xl text-blue-900 font-bold border-b-2 text-center mb-6">
-                    KPIs
-                </p>
+    </div>
+    <div id="moreMetrics" class="mt-6">
+        <p class="text-2xl text-blue-900 font-bold border-b-2 text-center mb-6">
+            KPIs
+        </p>
+        <div class="flex justify-center m-auto flex-nowrap block mb-6">
+            <section class="block">
+                <h2 class="text-center text-xl font-bold border-b-2 mb-2">
+                    Good Day Percentage
+                </h2>
+                <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+						<circle
+							class="circle-chart__background"
+							stroke="#fff"
+							stroke-width="2"
+							fill="none"
+							cx="16.91549431"
+							cy="16.91549431"
+							r="15.91549431"
+						/>
+						<circle
+							id="percentGoodCalc"
+							class="circle-chart__circle"
+							stroke="#2a4365"
+							stroke-width="2"
+							stroke-dasharray="30,100"
+							stroke-linecap="round"
+							fill="none"
+							cx="16.91549431"
+							cy="16.91549431"
+							r="15.91549431"
+						/>
+						<g class="circle-chart__info">
+							<text
+								id="goodDayPercent"
+								class="circle-chart__percent"
+								x="16.91549431"
+								y="15.5"
+								alignment-baseline="central"
+								text-anchor="middle"
+								font-size="8"
+							></text>
+							<text
+								class="circle-chart__subline"
+								x="16.91549431"
+								y="20.5"
+								alignment-baseline="central"
+								text-anchor="middle"
+								font-size="2"
+							>
+								percentage of good days
+							</text>
+						</g>
+					</svg>
+            </section>
+        </div>
+        <div class="flex justify-center m-auto flex-nowrap block mb-6">
+            <section class="block">
+                <h2 class="text-center text-xl font-bold border-b-2 mb-2">
+                    Most Common Answer
+                </h2>
+                <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+						<circle
+							class="circle-chart__background"
+							stroke="#fff"
+							stroke-width="2"
+							fill="none"
+							cx="16.91549431"
+							cy="16.91549431"
+							r="15.91549431"
+						/>
+						<circle
+							id="mostCommonAnswerPercentage"
+							class="circle-chart__circle"
+							stroke="#2a4365"
+							stroke-width="2"
+							stroke-dasharray="30,100"
+							stroke-linecap="round"
+							fill="none"
+							cx="16.91549431"
+							cy="16.91549431"
+							r="15.91549431"
+						/>
+						<g class="circle-chart__info">
+							<text
+								id="mostCommonAnswerPercentage2"
+								class="circle-chart__percent"
+								x="16.91549431"
+								y="15.5"
+								alignment-baseline="central"
+								text-anchor="middle"
+								font-size="8"
+							></text>
+							<text
+								id="mostCommonAnswerPercentage3"
+								class="circle-chart__subline"
+								x="16.91549431"
+								y="20.5"
+								alignment-baseline="central"
+								text-anchor="middle"
+								font-size="2"
+							></text>
+						</g>
+					</svg>
+            </section>
+        </div>
+    </div>
+    <div class="flex justify-center mt-24 mb-0 pt-12 rounded-t-lg">
+        <div class="text-center mr-24">
+            <button id="statsButton" class="rounded-full h-16 w-16 bg-blue-900 mb-2">
+					<i class="fas fa-chart-line fa-2x text-white"></i>
+				</button>
+            <p>Trends</p>
+        </div>
+        <div class="text-center">
+            <button id="replay" class="rounded-full h-16 w-16 bg-blue-900 mb-2">
+					<i class="fas fa-plus fa-2x text-white"></i>
+				</button>
+            <p>Entry</p>
+        </div>
+    </div>
 
-                <div class="flex justify-center m-auto flex-nowrap block mb-6">
-                    <section class="block">
-                        <h2 class="text-center text-xl font-bold border-b-2 mb-2">
-                            Good Day Percentage
-                        </h2>
-                        <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-							<circle
-								class="circle-chart__background"
-								stroke="#fff"
-								stroke-width="2"
-								fill="none"
-								cx="16.91549431"
-								cy="16.91549431"
-								r="15.91549431"
-							/>
-							<circle
-								id="percentGoodCalc"
-								class="circle-chart__circle"
-								stroke="#2a4365"
-								stroke-width="2"
-								stroke-dasharray="30,100"
-								stroke-linecap="round"
-								fill="none"
-								cx="16.91549431"
-								cy="16.91549431"
-								r="15.91549431"
-							/>
-							<g class="circle-chart__info">
-								<text
-									id="goodDayPercent"
-									class="circle-chart__percent"
-									x="16.91549431"
-									y="15.5"
-									alignment-baseline="central"
-									text-anchor="middle"
-									font-size="8"
-								></text>
-								<text
-									class="circle-chart__subline"
-									x="16.91549431"
-									y="20.5"
-									alignment-baseline="central"
-									text-anchor="middle"
-									font-size="2"
-								>
-									percentage of good days
-								</text>
-							</g>
-						</svg>
-                    </section>
-                </div>
-                <div class="flex justify-center m-auto flex-nowrap block mb-6">
-                    <section class="block">
-                        <h2 class="text-center text-xl font-bold border-b-2 mb-2">
-                            Most Common Answer
-                        </h2>
-                        <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-							<circle
-								class="circle-chart__background"
-								stroke="#fff"
-								stroke-width="2"
-								fill="none"
-								cx="16.91549431"
-								cy="16.91549431"
-								r="15.91549431"
-							/>
-							<circle
-								id="mostCommonAnswerPercentage"
-								class="circle-chart__circle"
-								stroke="#2a4365"
-								stroke-width="2"
-								stroke-dasharray="30,100"
-								stroke-linecap="round"
-								fill="none"
-								cx="16.91549431"
-								cy="16.91549431"
-								r="15.91549431"
-							/>
-							<g class="circle-chart__info">
-								<text
-									id="mostCommonAnswerPercentage2"
-									class="circle-chart__percent"
-									x="16.91549431"
-									y="15.5"
-									alignment-baseline="central"
-									text-anchor="middle"
-									font-size="8"
-								></text>
-								<text
-									id="mostCommonAnswerPercentage3"
-									class="circle-chart__subline"
-									x="16.91549431"
-									y="20.5"
-									alignment-baseline="central"
-									text-anchor="middle"
-									font-size="2"
-								></text>
-							</g>
-						</svg>
-                    </section>
-                </div> -->
-    </div>
-    </div>
     <!-- statsPage end -->
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js "></script>
