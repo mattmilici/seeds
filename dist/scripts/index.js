@@ -22,9 +22,10 @@ $(document).ready(function() {
 
     //sets the current date on screen
     const currentDate = moment().format("MM/DD/YYYY");
-    $("#questionSection").show();
+    $("#questionSection").hide();
     $("#reasons").hide();
-    $("#stats").hide();
+    $("#stats").show();
+    $("#streakCounter").text(currentStreakLength(userArray));
 
     //functions that navigate thru the html and hide/show divs
     $("#currentDate").text(currentDate);
@@ -169,18 +170,19 @@ $(document).ready(function() {
     //-----------------------------------Most Common Cause of a good day end-----------------------------------
 
     //-----------------------------------Current Streak start----------------------------------
-    function currentStreakLength() {
+    function currentStreakLength(array) {
         let currentStreak = 0;
-        let result = true;
+        console.log(userArray);
+        console.log(userArray.length);
         for (let i = 0; i < userArray.length; i++) {
             if (userArray[i].status === "thumbsUp") {
                 currentStreak++;
             } else {
-                result = false;
                 break;
             }
         }
         $("#streakCounter").text(currentStreak);
+        return currentStreak;
     }
     //-----------------------------------Current Streak end-----------------------------------
     $("#replay").on("click", restart);
