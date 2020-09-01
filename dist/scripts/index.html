@@ -27,12 +27,12 @@
             <div class="mt-8 flex justify-around">
                 <button id="thumbsDown" class="mr-8">
 						<i
-							class="text-blue-900 hover:blue-800 fas fa-thumbs-down fa-6x fa-flip-horizontal"
+							class="text-blue-900 hover:blue-800 far fa-frown-open fa-6x fa-flip-horizontal"
 						></i>
 					</button>
                 <button id="thumbsUp">
 						<i
-							class="text-blue-900 hover:blue-800 fas fa-thumbs-up fa-6x rounded-full"
+							class="text-blue-900 hover:blue-800 far fa-grin-alt fa-6x rounded-full"
 						></i>
 					</button>
             </div>
@@ -60,9 +60,11 @@
     <!-- statsPage begin-->
     <div class="m-4">
         <div id="stats" class="hidden">
-            <p class="text-blue-900 text-center text-4xl font-bold">Statistics</p>
+            <p class="text-blue-900 text-center text-3xl font-bold">
+                Good Day Streak
+            </p>
             <div class="flex flex-wrap justify-around mt-8">
-                <div class="mb-6">
+                <!-- <div class="mb-6">
                     <div class="m-auto rounded-full h-24 w-24 md:h-40 md:w-40 bg-blue-900 mb-4 shadow-2xl flex jusitfy-center align-center">
                         <p class="text-white text-2xl font-bold text-center m-auto">
                             <span id="goodDayCounter">30 </span>
@@ -70,18 +72,34 @@
                         </p>
                     </div>
                     <p class="text-center text-xs">Total good days</p>
-                </div>
+                </div> -->
                 <div class="mb-2">
                     <div class="m-auto rounded-full h-24 w-24 md:h-40 md:w-40 bg-blue-900 mb-4 shadow-2xl flex jusitfy-center align-center">
-                        <p class="text-white text-2xl font-bold text-center m-auto">
-                            <span id="streakCounter"> </span
-							><span class="text-sm font-normal"> days</span>
-                        </p>
+                        <div class="text-white text-center m-auto">
+                            <p class="text-2xl font-bold text-center">
+                                <span id="streakCounter"> </span
+									><span class="text-sm font-normal"> days</span>
+                            </p>
+                            <p class="text-center text-xs">Current Streak</p>
+                        </div>
                     </div>
-                    <p class="text-center text-xs">Current Streak</p>
                 </div>
             </div>
-            <div id="moreMetrics" class="mt-6">
+            <div class="flex justify-center mt-24">
+                <div class="text-center mr-16">
+                    <button id="stats" class="rounded-full h-16 w-16 bg-blue-900">
+							<i class="fas fa-chart-line fa-2x text-white"></i>
+						</button>
+                    <p>Trends</p>
+                </div>
+                <div class="text-center">
+                    <button id="replay" class="rounded-full h-16 w-16 bg-blue-900">
+							<i class="fas fa-plus fa-2x text-white"></i>
+						</button>
+                    <p>Entry</p>
+                </div>
+            </div>
+            <!-- <div id="moreMetrics" class="mt-6">
                 <p class="text-2xl text-blue-900 font-bold border-b-2 text-center mb-6">
                     KPIs
                 </p>
@@ -186,15 +204,14 @@
 							</g>
 						</svg>
                     </section>
-                </div>
-                <button id="replay" class="text-center m-auto">Add Another Day</button>
-            </div>
+                </div> -->
         </div>
-        <!-- statsPage end -->
+    </div>
+    <!-- statsPage end -->
 
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js "></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js "></script>
-        <script src="index.js "></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js "></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js "></script>
+    <script src="index.js "></script>
 </body>
 
 </html>
